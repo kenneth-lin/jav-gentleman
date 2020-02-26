@@ -1,3 +1,9 @@
+# This project is from jav-scrapy
+
+I add a website for file explorer, which is implement by express. (port 80)
+Run it to Start:
+npm run start
+
 # jav-scrapy
 
 一个可以爬取 AV 磁力链接或影片封面的小爬虫。

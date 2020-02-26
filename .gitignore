@@ -1,6 +1,8 @@
 /node_modules
 .tern-project
 .eslintrc
+package-lock.json
+/public
 
 test
 /.vs
