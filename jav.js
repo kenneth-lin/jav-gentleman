@@ -11,6 +11,7 @@ var path = require('path');
 var fs = require('fs');
 var mkdirp = require('mkdirp');
 const _ = require('lodash');
+var config = require('./package.json')
 
 // global var
 
@@ -54,7 +55,9 @@ if (proxy) {
 var count = parseInt(program.limit);
 var hasLimit = (count !== 0),
     targetFound = false;
-var output = program.output.replace(/['"]/g, '');
+
+var output = config.publicFolder + '/'+ program.output
+var output = output.replace(/['"]/g, '');
 
 console.log('========== 获取资源站点：%s =========='.green.bold, baseUrl);
 console.log('并行连接数：'.green, parallel.toString().green.bold, '      ',

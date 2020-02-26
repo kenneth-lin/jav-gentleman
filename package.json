@@ -2,16 +2,19 @@
   "name": "jav-scarpy",
   "version": "0.8.0",
   "description": "",
+  "publicFolder": "public",
+  "port": "80",
   "main": "jav.js",
   "preferGlobal": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/raawaa/jav-scrapy.git"
+    "url": "https://github.com/kenneth-lin/jav-gentleman"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
-  "author": "raawaa <wenjie_yu@yeah.net>",
+  "author": "change",
   "bin": {
     "jav": "jav.js"
   },

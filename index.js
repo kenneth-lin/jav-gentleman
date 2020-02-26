@@ -1,6 +1,7 @@
 var express = require('express')
 var ejs = require('ejs')
 var readfile = require('./read')
+var config = require('./package.json')
 
 var app = express()
 
@@ -8,12 +9,15 @@ app.set('views', __dirname + '/view');
 app.engine('.html', ejs.__express);
 app.set('view engine', 'html');
 
-app.use(express.static('image'));
+let publicFolder = config.publicFolder
+let port = config.port
+
+app.use(express.static(publicFolder));
 app.use(express.static('images'));
 
 app.get('/', function (req, res) {
     var pathQ = req.query["path"]
-    if (!pathQ) pathQ = '/image'
+    if (!pathQ) pathQ = '/'+publicFolder
     pathQ = pathQ.replace(/\\/g, '\/')
     readfile.readFolder(pathQ,function(error,data){
         let pathBack = pathQ.substring(0,pathQ.lastIndexOf('/'))
@@ -29,4 +33,4 @@ app.get('/', function (req, res) {
 })
 
 
-app.listen(3000)
+app.listen(port)

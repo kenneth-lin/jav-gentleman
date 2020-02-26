@@ -1,12 +1,14 @@
 var fs = require('fs')
 const path = require('path')
+var config = require('./package.json')
+let publicFolder = config.publicFolder
 
 exports.readFolder = function (pathQ, callback) {
     var data = {}
     data.folders = []
     data.files = []
     var dir = __dirname + pathQ
-    var imageBasedir = __dirname + '/image'
+    var imageBasedir = __dirname + '/'+publicFolder
     fs.readdir(dir, function (err, files) {
         if (err) {
             callback("Nothing")
