@@ -3,15 +3,15 @@ const path = require('path')
 var config = require('./package.json')
 let publicFolder = config.publicFolder
 
-exports.readFolder = function (pathQ, callback) {
+exports.readFolder = function (pathQ, index, callback) {
     var data = {}
     data.folders = []
     data.images = []
     data.videos = []
     //var dir = __dirname + pathQ
-    var dir = publicFolder + pathQ
+    var dir = publicFolder[index] + pathQ
     //var imageBasedir = __dirname + '/'+publicFolder
-    var imageBasedir = publicFolder
+    var imageBasedir = publicFolder[index]
     fs.readdir(dir, function (err, files) {
         if (err) {
             callback("Nothing",data)

@@ -1,0 +1,18 @@
+<html>
+<head>
+    <style>
+        a {
+            font-size: 90px;
+        }
+    </style>
+</header>
+
+<body>
+    <h1>Total Index</h1><br>
+    <% for(var i in data){%>
+    <div>
+        <a href="/?index=<%=i%>"><%=data[i]%></a>
+    </div>
+    <%  } %>
+</body>
+</html>

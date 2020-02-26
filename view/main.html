@@ -1,62 +1,72 @@
+<html>
+
 <head>
     <style>
-        .box{
+        .box {
             clear: both;
             padding: 10px;
             margin: 0;
         }
-        .back{
+
+        .back {
             font-size: 90px;
         }
-        img.pre{
+
+        img.pre {
             max-width: 100%;
         }
-        video.pre{
+
+        video.pre {
             max-width: 100%;
             min-height: 200px;
         }
-        img.folder{
+
+        img.folder {
             padding: 10px;
             width: 30%;
             float: left;
         }
-        .folder{
+
+        .folder {
             position: relative;
-            clear:both;
+            clear: both;
         }
-        .folder span{
-            position:relative;
+
+        .folder span {
+            position: relative;
             float: left;
-            top:10px;
+            top: 10px;
             font-size: 60px;
         }
 
-        .videoBox span{
+        .videoBox span {
             font-size: 30px;
         }
     </style>
 </head>
-<body>
-<h1>Path: <%=data.pathQ%> </h3>
 
-<div style="height: 110px;"><a class="back" href="/?path=<%=data.pathBack%>">回到上一级</a></div>
-<% for(var i in data.folders){ %>
-    <div class="box">
-        <a class="folder" href="/?path=<%=data.folders[i]%>">
-            <img class="folder" src='/folder.jpg'>
-            <span><%=data.folders[i].substring(data.folders[i].lastIndexOf('/')+1,data.folders[i].length)%></span>
-        </a>
-    </div>
-<%}%>
+<body>
+    <h1>Path: <%=data.pathQ%> </h3>
+
+        <div style="height: 110px;"><a class="back" href="/?index=<%=data.index%>&path=<%=data.pathBack%>">回到上一级</a></div>
+        <% for(var i in data.folders){ %>
+        <div class="box">
+            <a class="folder" href="/?index=<%=data.index%>&path=<%=data.folders[i]%>">
+                <img class="folder" src='/folder.jpg'>
+                <span><%=data.folders[i].substring(data.folders[i].lastIndexOf('/')+1,data.folders[i].length)%></span>
+            </a>
+        </div>
+        <%}%>
 <% for(var i in data.images){ %>
-    <div class="box">
-        <img class="pre" src="<%=data.images[i]%>"></img>
-    </div>
-<%}%>
+        <div class="box">
+            <img class="pre" src="<%=data.images[i]%>"></img>
+        </div>
+        <%}%>
 <% for(var i in data.videos){ %>
-    <div class="box videoBox">
-        <span><%=data.videos[i].substring(data.videos[i].lastIndexOf('/')+1,data.videos[i].length)%></span>
-        <video class="pre"  preload="meta" src="<%=data.videos[i]%>" controls="controls"></video>
-    </div>
-<%}%>
+        <div class="box videoBox">
+            <span><%=data.videos[i].substring(data.videos[i].lastIndexOf('/')+1,data.videos[i].length)%></span>
+            <video class="pre" preload="meta" src="<%=data.videos[i]%>" controls="controls"></video>
+        </div>
+        <%}%>
 </body>
+</html>

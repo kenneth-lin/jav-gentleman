@@ -2,7 +2,7 @@
   "name": "jav-gentleman",
   "version": "0.8.0",
   "description": "",
-  "publicFolder": "public",
+  "publicFolder": ["A","B"],
   "port": "80",
   "main": "jav.js",
   "preferGlobal": true,
