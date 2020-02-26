@@ -25,7 +25,7 @@ exports.readFolder = function (pathQ, index, callback) {
                 filePath = filePath.replace(/\\/g, '\/')
                 data.folders.push(filePath)
             } else if (stats.isFile()) {
-                if (['.jpg', '.jpeg', '.gif', '.png'].includes(path.extname(pathname))) {
+                if (['.jpg', '.jpeg', '.gif', '.png'].includes(path.extname(pathname).toLocaleLowerCase())) {
                     var filePath = pathname.substring(imageBasedir.length, pathname.length)
                     filePath = filePath.replace(/\\/g, '\/')                    
                     data.images.push(filePath)
