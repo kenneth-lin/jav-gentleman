@@ -1,0 +1,45 @@
+<head>
+    <style>
+        .back{
+            font-size: 40px;
+        }
+        img.pre{
+            padding: 10px;
+            max-width: 100%;
+        }
+        img.folder{
+            padding: 10px;
+            width: 100px;
+            float: left;
+        }
+        .folder{
+            position: relative;
+            padding: 10px;
+            height: 110px;
+            clear:both;
+        }
+        .folder span{
+            position:relative;
+            float: left;
+            top:10px;
+        }
+    </style>
+</head>
+<body>
+<h1>Current Path: <%=data.pathQ%> </h1>
+
+<div><a class="back" href="/?path=<%=data.pathBack%>">回到上一级</a></div>
+<% for(var i in data.folders){ %>
+    <div>
+        <a class="folder" href="/?path=<%=data.folders[i]%>">
+            <img class="folder" src='/folder.jpg'>
+            <span><%=data.folders[i]%></span>
+        </a>
+    </div>
+<%}%>
+<% for(var i in data.files){ %>
+    <div>
+        <img class="pre" src="<%=data.files[i]%>"></img>
+    </div>
+<%}%>
+</body>
