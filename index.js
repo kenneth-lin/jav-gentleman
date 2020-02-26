@@ -17,7 +17,8 @@ app.use(express.static('images'));
 
 app.get('/', function (req, res) {
     var pathQ = req.query["path"]
-    if (!pathQ) pathQ = '/'+publicFolder
+    //if (!pathQ) pathQ = '/'+publicFolder
+    if (!pathQ) pathQ = '/'
     pathQ = pathQ.replace(/\\/g, '\/')
     readfile.readFolder(pathQ,function(error,data){
         let pathBack = pathQ.substring(0,pathQ.lastIndexOf('/'))
