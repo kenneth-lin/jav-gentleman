@@ -42,13 +42,34 @@
         .videoBox span {
             font-size: 30px;
         }
+
+        .top {
+            width: 200px;
+            font-size: 120px;
+            height: 200px;
+            background: gray;
+            opacity: 0.9;
+            position: fixed;
+            bottom: 50px;
+            right: 50px;
+            text-align: center;
+            line-height: 180px;
+            border-radius: 100px;
+            z-index: 1000;
+        }
     </style>
+    <script>
+        function ScrollToTop(){
+            document.body.scrollTop = 0;
+        }
+    </script>
 </head>
 
 <body>
     <h1>Path: <%=data.pathQ%> </h3>
-
-        <div style="height: 110px;"><a class="back" href="/?index=<%=data.index%>&path=<%=data.pathBack%>">回到上一级</a></div>
+        <div class="top" onclick="javscript:ScrollToTop()">top</div>
+        <div style="height: 110px;"><a class="back" href="/?index=<%=data.index%>&path=<%=data.pathBack%>">回到上一级</a>
+        </div>
         <% for(var i in data.folders){ %>
         <div class="box">
             <a class="folder" href="/?index=<%=data.index%>&path=<%=data.folders[i]%>">
