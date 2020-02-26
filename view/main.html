@@ -26,14 +26,14 @@
     </style>
 </head>
 <body>
-<h1>Current Path: <%=data.pathQ%> </h1>
+<h3>Path: <%=data.pathQ%> </h3>
 
-<div><a class="back" href="/?path=<%=data.pathBack%>">回到上一级</a></div>
+<div style="height: 60px;"><a class="back" href="/?path=<%=data.pathBack%>">回到上一级</a></div>
 <% for(var i in data.folders){ %>
     <div>
         <a class="folder" href="/?path=<%=data.folders[i]%>">
             <img class="folder" src='/folder.jpg'>
-            <span><%=data.folders[i]%></span>
+            <span><%=data.folders[i].substring(data.folders[i].lastIndexOf('/')+1,data.folders[i].length)%></span>
         </a>
     </div>
 <%}%>
