@@ -1,11 +1,19 @@
 <head>
     <style>
+        .box{
+            clear: both;
+            padding: 10px;
+            margin: 0;
+        }
         .back{
             font-size: 40px;
         }
         img.pre{
-            padding: 10px;
             max-width: 100%;
+        }
+        video.pre{
+            max-width: 100%;
+            min-height: 200px;
         }
         img.folder{
             padding: 10px;
@@ -14,7 +22,6 @@
         }
         .folder{
             position: relative;
-            padding: 10px;
             height: 110px;
             clear:both;
         }
@@ -30,16 +37,22 @@
 
 <div style="height: 60px;"><a class="back" href="/?path=<%=data.pathBack%>">回到上一级</a></div>
 <% for(var i in data.folders){ %>
-    <div>
+    <div class="box">
         <a class="folder" href="/?path=<%=data.folders[i]%>">
             <img class="folder" src='/folder.jpg'>
             <span><%=data.folders[i].substring(data.folders[i].lastIndexOf('/')+1,data.folders[i].length)%></span>
         </a>
     </div>
 <%}%>
-<% for(var i in data.files){ %>
-    <div>
-        <img class="pre" src="<%=data.files[i]%>"></img>
+<% for(var i in data.images){ %>
+    <div class="box">
+        <img class="pre" src="<%=data.images[i]%>"></img>
+    </div>
+<%}%>
+<% for(var i in data.videos){ %>
+    <div class="box">
+        <span><%=data.videos[i].substring(data.videos[i].lastIndexOf('/')+1,data.videos[i].length)%></span>
+        <video class="pre" src="<%=data.videos[i]%>" controls="controls"></video>
     </div>
 <%}%>
 </body>

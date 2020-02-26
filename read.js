@@ -6,7 +6,8 @@ let publicFolder = config.publicFolder
 exports.readFolder = function (pathQ, callback) {
     var data = {}
     data.folders = []
-    data.files = []
+    data.images = []
+    data.videos = []
     var dir = __dirname + pathQ
     var imageBasedir = __dirname + '/'+publicFolder
     fs.readdir(dir, function (err, files) {
@@ -25,7 +26,12 @@ exports.readFolder = function (pathQ, callback) {
                 if (['.jpg', '.jpeg', '.gif', '.png'].includes(path.extname(pathname))) {
                     var filePath = pathname.substring(imageBasedir.length, pathname.length)
                     filePath = filePath.replace(/\\/g, '\/')
-                    data.files.push(filePath)
+                    data.images.push(filePath)
+                }
+                if (['.mp4'].includes(path.extname(pathname))) {
+                    var filePath = pathname.substring(imageBasedir.length, pathname.length)
+                    filePath = filePath.replace(/\\/g, '\/')
+                    data.videos.push(filePath)
                 }
             }
         })
