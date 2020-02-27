@@ -30,7 +30,7 @@ exports.readFolder = function (pathQ, index, callback) {
                     filePath = filePath.replace(/\\/g, '\/')                    
                     data.images.push(filePath)
                 }
-                if (['.mp4'].includes(path.extname(pathname))) {
+                if (['.mp4','.rmvb','.rm','.mov'].includes(path.extname(pathname).toLocaleLowerCase())) {
                     var filePath = pathname.substring(imageBasedir.length, pathname.length)
                     filePath = filePath.replace(/\\/g, '\/')
                     data.videos.push(filePath)
